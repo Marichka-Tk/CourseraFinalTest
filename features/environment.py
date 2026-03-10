@@ -1,6 +1,3 @@
-"""
-Environment for Behave Testing
-"""
 from os import getenv
 from selenium import webdriver
 
@@ -13,7 +10,6 @@ def before_all(context):
     """ Executed once before all tests """
     context.base_url = BASE_URL
     context.wait_seconds = WAIT_SECONDS
-    # Select either Chrome or Firefox
     if 'firefox' in DRIVER:
         context.driver = get_firefox()
     else:
@@ -26,9 +22,6 @@ def after_all(context):
     """ Executed after all tests """
     context.driver.quit()
 
-######################################################################
-# Utility functions to create web drivers
-######################################################################
 
 def get_chrome():
     """Creates a headless Chrome driver"""
